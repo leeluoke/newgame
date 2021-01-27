@@ -1,0 +1,433 @@
+Big Data Application and Analytics in a Large-Scale Power System 
+Jeremy Lin 
+Transmission Analytics 
+
+Elham Foruzan 
+University of Nebraska-Lincoln 
+
+Fernando H. Magnago 
+Universidad de Rio Cuarto, Nexant Inc. 
+
+CONTENTS 
+2.1 Introduction..................................................................................................10 
+2.2 General Applications of Big Data .............................................................. 10 
+2.2.1 Health Care.......................................................................................11 
+2.2.2 Social Networking...........................................................................12 
+2.2.3 Handling Big Data...........................................................................13 
+2.3 Algorithms for Processing Big Data.......................................................... 13 
+2.3.1 Machine Learning and Deep Learning Generalities.................. 13 
+2.3.2 Machine Learning ........................................................................... 14 
+2.3.2.1 Artificial Neural Network (ANN) Model...................... 14 
+2.3.2.2 Support Vector Machine (SVM) ...................................... 15 
+2.3.2.3 Decision-Tree Classifier....................................................17 
+2.3.3 Deep Learning.................................................................................. 19 
+2.3.3.1 Deep Learning Models.....................................................20 
+2.3.3.2 Challenges and Suggested Solutions for Using Deep Learning in Big Data Analytics ............................25 
+2.4 Application of Big Data in Power Systems...............................................27 
+2.4.1 Big Data in Smart Grid Networks .................................................27 
+2.4.2 Phasor Measurement Units (PMU) ...............................................28 
+2.4.3 Renewable Energy ...........................................................................29 
+2.4.4 CIM as Information Standard for Big Data Analytics................29 
+2.4.5 Big Data Problem in Power System Modeling.............................30 
+2.4.5.1 Security-Constrained Unit Commitment (SCUC)........30 
+2.4.5.2 Decomposition Methods to Handle Big Data ............... 31 
+2.4.5.3 Firm Transmission Right (FTR) Problems.....................32 
+2.4.5.4 Time-Constrained Economic Dispatch..........................33 2.5 Conclusions...................................................................................................33 References...............................................................................................................34 
+
+2.1 Introduction 
+Data are everywhere nowadays coming from an infinite number of sources. Images, videos, and encrypted data are all part of big data whose structure has become much more complex. Due to the high volume, velocity, and vari-ety of data, this new breed of data is called ※Big Data.§ Big data is a term that describes a large volume of data〞both structured and unstructured〞that inundates businesses, organizations, and lives on daily basis. But it is not the amount of data that is important. What really matters is what businesses and organizations do with the data. Big data can be analyzed for insights that lead to better decisions and strategic business moves. In the literature, the requirement to handle big data is known as ※the 4Vs data.§ This 4Vs rep-resent the characteristics of the data〞volume, variety, velocity, and veracity. 
+With this big data, it is important to store it, process it, and be able to extract the value from that data. There, it becomes much more complicated and complex. Not only is there more data with more information that var-ies much more greatly, but now users also expect to do more with it. And they not only expect to do valuable things with their data, but also expect to extrapolate information and share data with other users＊ data. Collection, storage, management, and automated large-scale analysis of data are impor-tant functions to big data. The fundamental challenge of big data is not about collecting data, but about making sense out of it. The key questions related to big data are: What is the starting point? What are the computational paths to discovery of meaningful results? What are the relevant algorithms and how to visualize the findings? And what kind of key decisions can be made in the context of the application of big data? While the focus of this chapter is on the application and analysis of big data in a large-scale power system, we start with the general applications of big data in the next section. 
+
+2.2 General Applications of Big Data 
+※Big Data§ demand cost-effective, innovative forms of information process-ing for enhanced insight and decision making. Explosive growth of big data was triggered by widespread adoption of the Internet around the globe. The Internet is essentially a realization of a concept of wide area networking based on computer and communication systems. The Internet is at once a world-wide broadcasting capability, a mechanism for information dissemi-nation, and a medium for collaboration and interaction among individuals and their computers regardless of their geographic locations. Metaphorically, the Internet is like a gigantic information infrastructure as more and more institutions and individuals have joined to use the Internet as part of their daily routines. 
+With the explosive use of the Internet came the explosive amount of data. Huge amount of data are being collected and stored every day by many organizations. For example, Google typically processes over 20 petabytes (1 petabyte = 1,000,000,000,000,000 bytes) a day of user-generated data. Sources of these data include web data, e-commerce, purchases at department/grocery stores, bank/credit card transactions, social networks to name just a few. 
+The big data explosion touches every possible business and industry throughout the world, see (Bihl et.al. 2016). Before discussing big data in power systems, two examples will be discussed to show the wide scale impact of big data. Both health care and social networking are used as two prime areas of big data impact and will serve as illustrative examples. 
+2.2.1 Health Care 
+In health care, there are many possible sources of big data. According to Gartner (Gartner March 2016) report, there are eight sources of big data in health care: 
+1. 
+Physicians＊ free-text notes 
+
+2. 
+Patient-generated health data (PGHD) 
+
+3. 
+Genomics 
+
+4. 
+Physiological monitoring data 
+
+5. 
+Publicly available data 
+
+6. 
+Credit card and purchasing data 
+
+7. 
+Social media data 
+
+8. 
+Medical imaging data 
+
+
+The volume of data for each source mentioned above can vary from approxi-mately 100 GB per patient on genomics to terabytes of stored text (physicians＊ notes) to petabytes (medical imaging data). The structure of these data can range from free-hand/unstructured (physicians＊ notes) to some standard formats (genomics). 
+Health care analytics is also growing in importance, due to heath indus-try stakeholders＊ thirst for information, the need to manage large and diverse data sets, increased competition and growing regulatory complexity. 
+Innovations ranging from precision medicine to value-based care to popu-lation health management are also driving forces behind this. Value-based care relies on the foundation of robust data and analytics. The shift in the US health care system to value-based care is likely to demand significant ana-lytic infrastructure investments and expansions across all health industry stakeholders interested in fully realizing and optimizing its value: health care providers and health systems, plans and payers, life sciences, and biopharma. 
+Despite this massive amount of data, it is important to improve the quality of information available to stakeholders in the health care system. Establishment of analytics program, information management, data gov-ernance, and IT platform are key to achieving quality improvement of information. As more and more data become available from sources like electronic health records, claims, wearable medical devices, social media, and the patients themselves, analytics can increasingly help detect patterns in information, delivering actionable insights, and enabling self-learning systems to predict, infer, and conceive alternatives that might not otherwise be obvious. In the future, such analytics-driven insights are likely to play a major role in helping health organizations reduce costs and improve quality, identify and better treat at-risk populations, connect with consumers, and better understand the performance and impact of health interventions on health outcomes. 
+The key challenge in health care business is to measure and improve the clinical performance to ensure clinical quality of the care delivered to the patients. Exploitation of full potential of clinical data is important to assess clinical quality. Clinical quality is equivalent to excellent clinical outcome, such as mortality, infections, survival curves, etc., and subsequent best path for patient treatment. 
+The raw data are not useful unless and until this siloed data can be trans-formed into patient-centered structure. The digital data should be easily accessible to patients and relevant stakeholders as well. Highly motivated physicians are willing and eager to adjust their clinical practice if presented with credible, high-quality data. Real-time information and predictive models should also be used to solve operational and clinical delivery problems. The key goal of using big data analytics is to find out which data source can signifi-cantly improve the analytics effort to help solve the problems in health care. 
+
+2.2.2 Social Networking 
+Most of the social networking are online in nature while relying largely on the Internet. With regards to data in social networking, there has been an explosive growth in size, complexity, and unstructured data. Significant research work has been done on big data in social networking which are enabled by various experimental methods including observational studies, and simulations, using large amount of data. 
+It is indeed ※big data§ which is the vast sets of information gathered by researchers at companies such as Facebook, Google, and Microsoft from patterns of cellphone calls, text messages, and Internet clicks by millions of worldwide users. Companies often refuse to make such information public, in part for competitive reasons and in part to protect customers＊ privacy. 
+
+2.2.3 Handling Big Data 
+There are two dimensions to enable the possibility of such big data: hardware capability and applications/algorithms. Hardware capability is comprised of storage capacity, network bandwidth, significantly increasing capability at the same cost or lower cost, and processing capacity. The main develop-ments in applications/algorithms include online social networking, algorith-mic breakthroughs, machine learning and data mining, cloud computing and its lower cost and scalability improvements, and ubiquitous sensors in every possible measurable point imaginable. For example, the price of 1 GB of storage has declined from roughly $300,000 in 1981 to $1000 in 1994 to a few cents nowadays. 
+
+
+2.3 Algorithms for Processing Big Data 
+Among the available algorithms used to process and analyze big data, machine learning and deep learning algorithms have gained significant attention recently in the research community. Although deep learning is a subset of machine learning, we will discuss them separately since deep learning builds upon methods and architectures found in machine learning. 
+2.3.1 Machine Learning and Deep Learning Generalities 
+The basic concept behind machine learning is to use unclassified training data to teach a machine through learning algorithms to inferred function in which the machine is able to classify new unseen data. Thus, machine-learning algorithms define weighing parameters for the models with the help of the training data. The weighing parameters are updated through finite iterations until the algorithm converges and learns to find patterns within the training data. After completing the training phase, the model can be used to predict the outcome of a variable if the new data are subsequently provided. 
+Generally, there are two types of machine learning: supervised learning and unsupervised learning. In the supervised learning approach, the algo-rithm is trained with data that contain both the input as well as the related output which are called labels. With the known output labels in the training data, the algorithm aims to determine a rule that maps attributes of input data to those labels. In the case of unsupervised learning, the training data does not contain any related output. Consequently, the algorithm involved cannot learn how to classify or predict new data points. Instead, unsuper-vised learning commonly aims at identifying a structure within the data. 
+
+2.3.2 Machine Learning 
+Machine learning provides different models that are capable in dealing with large and complex data sets. Additionally, machine learning offers differ-ent classification and prediction algorithms that can perform the predic-tions in the shortest time possible to facilitate real-time decision making in power system applications such as power market and system stability areas. Indeed, machine learning-based classification is also quite often applied in electricity markets, customer load prediction, and power system state esti-mation (Aggarwal et.al. 2009; Saini et.al. 2010; Soares et.al. 2012). 
+We thus attempted to limit this chapter largely to some classification algo-rithms of machine learning, as we believe that this field has potentially impor-tant application in power systems. In this regard, various techniques such as fuzzy inference, fuzzy-neural models, artificial neural network (ANN), decision tree, and support vector machines (SVMs) (Deepak & Swarup 2011; Negnevitsky et.al. 2009) are used in power system prediction and classification problems. Among the different AI methods, ANN, SVM, and decision-tree methods have received significant attention in recent years due to their high potential applications in power systems. In the rest of this section, three well-known supervised learning algorithms are further explained in detail. These three algorithms are ANN, SVM, and decision tree which are widely used for data analysis and classifications in power system problems. 
+2.3.2.1 Artificial Neural Network (ANN) Model 
+Neural networks have a considerable ability to obtain meaning from com-plicated data. It can be used for detecting and extracting the patterns from trends that are too complex to be noticed by either human or other computer techniques. ANN represents a structure of layers and interconnected pro-cessing nodes. Multi-layer perceptron (MLP) is the most widely used net-work architecture in ANN. 
+Figure 2.1 shows the basic scheme of a multilayer feed-forward ANN with three layers, namely input, hidden, and output layers. The circular nodes in Figure 2.1 represent the artificial neurons, while lines which are assigned with some weights represent connection from the output of one artificial neuron to the input of another artificial neuron (Kalogirou 2000). The input layer obtains input from its environment and sends it to the hidden layer. The purpose of the hidden layer is to connect the input layer to the output layer to extract more information for classification. The response of neurons is delivered by the output layer. 
+
+FIGURE 2.1 
+Scheme of a feed-forward ANN. 
+As can be seen in Figure 2.1, the input layer is vector X={x1,.x2,..,.xn} and the output is y. The neuron k in jth hidden layer can be described as follows: 
+’ n  vjk= ～ .(wjixbi+ ) . (2.1) 
+
+. i=0  
+where 考 (.) is the activation function, wj ={wj1, wj2, ＃, wjn} is the weight vec-tor associated with input vector, and b is a bias level. 
+The goal of the ANN learning algorithm is to determine a set of weights, W= {w1, w2}, such that the sum of squared errors for the training data is minimized. Usually, the cost of the error, E, is calculated as the difference between the actual output and the desired output as 
+E= 步.yfWX’. 2 (2.2) 
+
+
+
+
+.( , ) 
+where f(W, X) is the output determined by ANN. 
+2.3.2.2 Support Vector Machine (SVM) 
+Similar to ANNs, SVM is an algorithm that attempts to identify a function mapping that uses a number of input data from the training set and splits observations into several separate classes. Here, the general approach is to map all data into a new space in which data are separable, then find the best linear classification in the new space. The regression SVM problem can be stated as below. 
+Given the training data set with size n, (Xi, yi) for i= 1, ＃, n; in which Xi is the ith input vector, and yi is the ith output vector, the target is to find the function y(x) that can approximate the relation between input features and be able to predict output for the new input X (Alpaydin 2014). Using function gj(),
+x j= 1,..., m, input X is mapped into the m-dimensional feature space. Function y(X) as the linear function of inputs in the new space is expressed as follows: 
+m 
+y(,x～) =.～ jjg(x) + b. (2.3) 
+j=1 
+where wj is the weight of input gj()x and b is the bias term. SVM regres-sion solves the problem to estimate the parameters wj, = 1,..., m and the bias 
+j 
+term. In the SVM, the 汍-insensitive loss function is considered as an error. Therefore, error value less than 汍 is acceptable: 
+. 
+0 . (,. if|ryx.)|步～ 
+e～ (,ry(,x.)) =’ (2.4) 
+. |ry. (x,)|. .～ otherwise 
+ 
+Thus, SVM regression is formulated to minimize the error function and problem complexity: 
+n 
+12 * 
+min ..～+ C (.i+.i). 
+2 . 
+i=1 
+ * 
+i. x .) 步～+.i
+ry(,i
+
+ 
+s.t. i .步+i
+ y(,x .) r ～.i (2.5)  
+ ..i, i * ’0, i=1,..., n
+ 
+where .i * and .i are the upper and lower training errors, respectively. The optimization problem in Equation (2.5) can be transformed into a dual prob-lem, and its solution is obtained by maximizing the dual function as shown in the following equation: 
+ttss tt ttt
+y() 1/2..|( .～ )( .～ Kxx...～ +～ ) ..r(～ .～ ).
+x=. ～+.～+.)(,i )( +. +. 
+ts ss 
+(2.6) 
+t ttt
+s.t. 0 .～+ . C,0 .～. . C, .(～+ .～. ) = 0 
+t where K(,xxi) is defined as follows: 
+m 
+K(,xxi) =.gj(x)(gjxi). (2.7) 
+j=1 
+Parameter C determines the trade-off between the model complexity and the degree of acceptable error. Increasing the amount of C will increase the effect of minimizing error. It is proved that we can estimate K(,xxi ) with a kernel function. The common kernel function that is applied for SVM is RBF kernel which is shown as follows: 
+.
+.
+. xx. i .2 
+. 
+2p2
+K
+(,i )exp 
+xx
+=
+步. 
+.’
+(2.8) 
+By solving Equation (2.6), coefficients .+ t ,.. t will be calculated. Finally, func-tion y(x) can be written as a weighted sum of the support vectors 
+n
+SV 
+y()x=.(～～.)K(,)b. 
+ii * xi x+ (2.9) 
+i=1 
+
+2.3.2.3 Decision-Tree Classifier 
+The decision-tree classifier is one of the possible approaches to multi-stage decision making, which uses the recursive top每down approach of decision-tree structure. A decision tree has a tree structure starting with a root node that is connected to the internal nodes using tree edges. The internal nodes recursively partition the instance space into two or more subclasses until tree leaf nodes are reached. Each leaf node is assigned to one class that is the most appropriate among all the classes. Therefore, a decision tree consists of a root node with no incoming edges, leaf nodes with no outgoing edges, and the internal nodes that have only one incoming edge. 
+There are many algorithms that can be used to determine the best way to partition the data in each internal node and build a final decision tree. Among them, the CART algorithm is a classification and regression tree that fits well with our numeric data space (Rutkowski et.al. 2014). In this section, we describe the CART algorithm that can classify the real value attributes into two classes. The resulting full-grown tree is identical to the tree con-structed by the algorithm. 
+a. The CART Algorithm 
+Gini gain is generally used to determine the suitable attribute to partition the data in root and each internal node. Therefore, for each node i, the attribute with the highest Gini gain (G(.)) is selected to partition the data set coming from the parent node to the node i. In the binary CART, the algorithms recursively divide every node into left and right partitions (Roman 2004; Rutkowski et.al. 2014). The node partitioning continues until a stopping criterion is triggered. The concepts of Gini index and Gini gain are further described below. The stopping criteria can be defined as setting the maximum tree depth, or if all data are classified with a deep tree. 
+b. Gini Index 
+The Gini index is used to measure impurity of each node in the CART algorithm. Let＊s suppose that node i processes data set Si that comes from node i＊s parent. The Gini index at node i is calculated from the following expression (Roman 2004): 
+K 
+()S=.1..Fki,
+Gini i ()2 . (2.10) 
+k=1 
+where Fki,.is the fraction of all the data in Si that belongs to class k.{1,.2,.＃,.K}. The minimum value of Gini index is obtained when all data are coming from one class. And the maximum value of Gini is obtained when the data are equally distributed among all classes. 
+c. Gini Gain 
+For each attribute jselected from the set of Navailable attributes, j.{1,.2,.＃,.N}, the set of attribute values Ajis partitioned into two disjoint subsets ALj and ARj. The two subsets ALj and ARj are comple-mentary and their union is set Aj. Suppose that Pirepresents the set of all possible partitioning subsets of set Aj. Every possible partitioning from set Piresults into different subsets ALjand ARjand divides the dataset S at node i LAA)
+i , into two disjoint left and right subsets, i( Lj,.Rj jj jjjj
+and RAA. Now, if the FA,.A and FA,.A
+i( L,.R) Li,.( LR) Ri,.( LR) represent jj
+the fractions of data element from Si belonging to LAA,.) and 
+i( LR i( Lj,.Rj , respectively, we have 
+RAA) 
+jj jj
+F,.AA + Ri,.AA, =.1 (2.11) 
+Li( L,.R) F ( LR) 
+jj jj
+The fraction of data from i( ,. and RAA,.)
+LAA) i( from class 
+LR LR jj jj
+k.{1,.2,.＃,.K} are denoted with F,.,.(AL,.A) and FRik,.(A,.AR).
+Lik R ,.L 
+The weighted Gini index of set Si with partition sets ALjand ARj is 
+defined as follows: 
+jjjj jj
+SA A = F AA,.Gini LA A 
+Weighted _Gini( i, L, R) Li,.( LR)( i( L, R)) 
+jj jj
++ FRi( AA, R Gini (( L
+,.L ) RAAi ,.R)) 
+where 
+K 
+2
+jj jj
+Gini LA A,.=.1 F AA.. (2.12) 
+( ,.,
+(iL R)) .(Lik,.(LR)) k=1 
+K jj jj
+Gini(RA AL,.R)1 (F,.L, )2.. (2.13) 
+i( )=..Rik,.(AAR) k=1 
+Finally, the value of Gini gain is calculated as follows: 
+G(SA Ai,.Lj,.Rj)=Gini Si .Weighted jj .
+() 
+Gini(SA Ai,.L,.R) (2.14) 
+Among all possible partitions of set Pi, the partition which maxi-
+mizes the value of Gini gain is chosen as an optimal partition of set 
+Aj for the subset of data S:
+i 
+* jj
+j = jL ) .
+A argmaxAA,.j.P{GSAA( i,.,.R} (2.15) 
+i
+LR 
+
+2.3.3 Deep Learning 
+In the modern world of information technology and smart devices, tremen-dous amounts of data are created every day. On average, 2.5 quintillion data are created daily (Wu et.al. 2014). Our capability to produce data is enormous in the current century since large-scale quantities of data such as digital streams of measurement in the form of text, image, and video for different purposes such as better monitoring or security are being collected and made available across various domains, including power systems. Therefore, there is a potential to efficiently use these data to improve the stability, robustness, and economics of the power system. 
+Nevertheless, the benefit of massive data and the presence of such an enormous data inevitably lead to the important challenge of dealing with big data. Big data refers to the exponential growth and wide availability of data that are difficult to store, process, manage, and analyze within a ※toler-able elapsed time§ using commonly used software tools and technologies (Zhi-Hua et.al. 2014). In order to take advantage of available big data, it is necessary to develop tools and methods that can be applied to explore and extract useful information, patterns or knowledge from large-scale data. Meaningful information and patterns extracted from large-scale input data are used for future actions such as decision making and prediction, which are at the core of big data analytics. Big data analytics aims to develop novel algorithms and models to address specific issues related to big data. 
+Deep learning provides one such model for analyzing available big data. The complex abstractions and data representations from large volumes of data, especially unsupervised data, by deep learning can be consid-ered as a practical source of knowledge for decision making, information retrieval, and for other purposes in big data analytics. Indeed, certain big data domains, such as computer vision (Krizhevsky et.al. 2012) and speech recognition (Hinton et.al. 2012), take advantage of deep learning to improve classification modeling results. 
+In this section, we will first introduce deep learning as a tool of big data analytics. Then, we will review three deep learning architectures that are most commonly used. Finally, we will discuss the challenges and some solu-tions of using deep learning in big data analysis. 
+2.3.3.1 Deep Learning Models 
+Deep learning algorithms are represented by architectures of consecutive layers. The objective of this deep architecture is to learn complicated repre-sentation of the data in a hierarchical manner by passing the data through multiple stacked layers. Each layer applies a nonlinear transformation on its input and provides automated feature selection to its output. In this architec-ture, the input data are fed to the first layer and then the output of each layer is provided as input to the next layer, consecutively. 
+The architecture of stacking up the nonlinear transformation layers is the main structure in deep learning algorithms that help extract different fea-tures from raw input data. With increasing number of layers in this architec-ture, more complicated nonlinear transformations can be constructed. These nonlinear transformation layers extract different features from input data and represent the data in different layers; so deep learning possesses struc-tures with multiple levels of data representations. The achieved final repre-sentation using deep learning algorithms is a highly nonlinear function of the input data. 
+The main advantage of deep learning algorithms is that they automatically extract features from complex and massive data (Bengio 2009, 2013). Deep-learning algorithms do not attempt to construct a pre-defined sequence of representations at each layer as in the most machine learning algorithms, but instead perform nonlinear transformations in different layers. These transformations disentangle factors of variations in data in different layers. Therefore, deep learning not only provides complex representations (fea-ture selection) of data but also makes the machines independent of human knowledge which is the ultimate goal of big data analysis. In this regard, deep learning models receive massive amount of unsupervised and super-vised data as an input to automatically extract complex patterns in the input data. And these models extract available patterns directly from unsuper-vised and supervised data without human interference. Another advantage of deep learning algorithms is their ability to analyze unsupervised data, which makes them more suitable for large percentage of available data. Unsupervised learning process is intended to learn data distributions with-out using label information since data are largely unlabeled. On the other hand, the supervised data have labels for all available data. 
+a. Convolutional Neural Network (CNN) 
+A convolutional neural network (CNN) is a special case of the neural network which consists of one or more layers for feature representations (or feature maps) which are followed by one or more fully connected layers as in a standard neural network for classifi-cation (Hijazi et.al. 2015; Krizhevsky et.al. 2009). Layers for feature selection usually consist of two types of layers called convolutional and pooling/subsampling layers. Convolutional layers perform convolution operations with several filter maps of equal size, while subsampling layers reduce the sizes of proceeding layers by averag-ing data within a small neighborhood or max-pooling. Figure 2.2 illustrates a typical CNN network. The input is converted with a set of filters called feature maps. Then, pooling/subsampling layers are applied to reduce the dimensionality of filtered data. The number of layers for feature representation depends both on the problem com-plexity and the designer discretion. 
+Convolutional layers are an essential part of multi-layer CNN. The layers＊ parameters consist of a set of learnable filters, which extracts different features of the input. In a multilayer CNN, the first con-volution layer extracts low level features while higher level layers extract higher level features (Krizhevsky et.al. 2009). A fully con-nected layer is used for classification during the training process. 
+Each convolutional layer is composed of multiple feature maps, which are constructed by convolving inputs with different filters. Each filter is convolved across the input volume by computing the dot product between the filter and the input to detect local features 
+Convolutional and pooling layer Full connected layer 
+Convolutional Pooling Convolutional Pooling +ReLU +ReLU 
+
+Y 
+FIGURE 2.2 
+Scheme of a feed-forward CNN. 
+during the feed-forward process. Following each pooling layer is an element-wise nonlinearity, which allows the CNN to learn new kinds of nonlinearity (Hijazi et.al. 2015; Krizhevsky et.al. 2009). Mathematically, applying local filters and a nonlinear function is stated below. The value of a neuron 糸xij at position x of the jth feature map in the ith layer is calculated as follows: 
+. Pi .1  x . x +
+xp 
+～ ij = gbij +...ijm ～(i.1)m.. (2.16) 
+. 
+’ mp=0  
+where m is the feature map in the (i . 1)th layer connected to the current feature map; 肋pijm is the weight of position p connected to the mth feature map; Pi is the width of the kernel toward the spectral dimension; and bij is the bias of jth feature map in the ith layer; g(.) is a nonlinear function which introduces nonlinearity into the model. Relu activation function is an option as a nonlinear function: 
+gx()=.Relu.()x =max0,.( x). (2.17) 
+Each neuron on the convolutional layer is connected to a local region of the previous layer and shares weights with other neurons on the same feature map to control the network capacity. A pooling layer is usually inserted in between successive convolutional layers to reduce the spatial size of the representation for decreasing the number of parameters and computations in the network and for controlling over-fitting. Each pooling layer corresponds to the previ-ous convolutional layer. The neuron in the pooling layer combines a small N ℅ N patch of the convolution layer. The most common pool-ing operation is max pooling which is expressed as follows: 
+n ℅ 1
+aj = maxN ℅ N (a un( ,.1)). (2.18) 
+i 
+where u(n, 1) is a window function to the patch of the convolution layer, and aj is the maximum in the neighborhood. 
+At the end of the structure of CNN model, the feature map as the output of the last max-pooling layer is then fed into the penultimate fully-connected layer where the neurons are fully connected to all activations in the previous layer, same as regular neural network described. The fully-connected layers are capable of combining the features abstracted from lower layers for final classification. 
+The weights among all layers, including the convolutional layers and fully connected layer of the deep CNN model, are trained using a backpropagation algorithm and a gradient descent algorithm with mean squared-error as the loss function. 
+b. Recurrent Neural Network (RNN) 
+Recurrent neural networks (RNNs) contain cyclic connections that make them a more powerful tool to model sequence data. These models learn to map input sequences to output sequences via a continuous vector valued intermediate hidden state. RNNs contain cycles that feed previous time step results into the network as a cur-rent input to have predictions at the current time step. These results are stored in the intermediate states of the RNN network. Therefore, in contrast to other algorithms that are designed for static windows of input data, the RNN can capture dynamically changing contex-tual windows over the input using long short-term memory (LSTM) architecture that is designed in RNN algorithm. LSTM is capable of learning long-term dependencies within a sequence of data (Hasim et.al. 2014). It contains special units called memory blocks in the recurrent hidden layer. The memory blocks contain memory cells with self-connections storing the temporal state of the network in addition to special multiplicative units called gates to control the flow of information. Each memory block in the architecture contains an input gate, forget gate, and an output gate. The role of each gate is explained as follows (Hasim et.al. 2014): 
+1. 
+Input gate: to control the flow of input activations into the mem-ory cell. 
+
+2. 
+Output gate: to control the output flow of cell activations into the rest of the network. 
+
+3. 
+Forget gate: to scale the internal state of the cell before adding it as input to the cell through the self-recurrent connection of the cell, therefore adaptively forgetting or resetting the cell＊s memory. 
+
+
+Different structures of RNN are reported in the literature (Hasim et al. 2014). Figure 2.3 shows a standard structure of LSTM RNN architecture. This structure has an input layer, a recurrent LSTM layer and an output layer. The input layer is connected to the LSTM layer. The LSTM output units are also connected to the output layer of the network. 
+
+
+FIGURE 2.3 
+Standard LSTM RNN architecture. 
+c. Deep Belief Network (DBN) Similar to CNN, deep belief network (DBN) has an input layer, stacks of hidden layers, and output layer. One of the big advantages of DBN is their capability of feature representation for both labeled (supervised) data and unlabeled (unsupervised) data (Hinton & Salakhutdinov 2006). Figure 2.4 shows a typical DBN architec-ture, which consists of restricted Boltzmann machines (RBMs) lay-ers and/or one or more additional layers for discrimination tasks (Hinton & Salakhutdinov 2006). Each RBM layer consists of two con-secutive layers of nodes, in which all the nodes from one layer are connected to all nodes in other layers. Similar to other deep learning algorithms, the final goal of DBN is to train weighing parameters in the network. 
+In this network, learning starts with unsupervised learning of each RBM using a Gibbs sampling and then updates the parameters for the RBM layer (Xue-Wen & Lin 2014). In this method, pre-training of RBMs is performed first and the output of each layer is fed to the next RBM layer. This pre-training is unsupervised, as unlabeled data are used for training RBMs. For each RMB with assumed Bernoulli distribution, the sampling probability is as follows: 
+步. ph( j = 1.|vW;) =～ ’aj+.wijvi.. (2.19) 
+’
+. I  
+pv( i = hW =. . (2.20) 
+1.| ;) b 
+
+
+FIGURE 2.4 
+Schematic of DBN architecture. 
+where v represents I ℅ 1 input unit vector and h represents J ℅ 1 hid-den unit vector; W is a matrix of weight connecting a hidden layer to its input layer (previous hidden layer); and .(). is a sigmoid function. Weights wij are updated based on a contrastive divergence approxi-mation and are shown as follows (Hinton 2002; Xue-Wen & Lin 2014): 
+.wt()1c.+wij 
+
+vhij 
+
+.
+
+vhij 
+
+. (2.21) 
+ij += .( 
+data 
+
+model ) 
+where 汐 is the learning rate and c is the momentum factor and 
+
+. 
+
+data 
+and 
+
+.
+
+ are the expectations of distribution for data and model. 
+
+model 
+Therefore, RBM training includes a Gibbs sampler to sample both hidden and its input layers and uses the contrastive divergence approximation to update the weights between these two layers. This process repeats several times until weights converge. 
+
+
+2.3.3.2 Challenges and Suggested Solutions for Using Deep Learning in Big Data Analytics 
+In this section, we provide three characteristics that are important parts of analyzing big data: (1) high volume, (2) high velocity, and (3) high variety (Xue-Wen & Lin 2014). These three characteristics refer to: (1) large scale of data, (2) high speed of streaming data, and (3) different types of data. Due to these characteristics, it is indeed challenging to develop deep learning algorithms. 
+a. Deep Learning for High-Volumes of Data 
+There are two big challenges associated with high-volumes of data. First, data that are used to build a deep learning algorithm usually possess large numbers of examples, high dimensionality of attri-butes, and varieties of output classes. These properties may lead to model complexity. Also these complex models can have a very long running time. In these cases, working with just one central processor is difficult or even impossible. The second challenge is associated with noisy labels. Data may have been collected from dif-ferent sources during long periods of time. Therefore, data may be mislabeled or not labeled at all. Distributed programming with par-allel machines is one possible solution to address the first challenge. Parallelizing several CPUs and GPUs increases the training speed without scarifying the model accuracy. Indeed, novel algorithms have used parallel processing to create deep learning models (Xue-Wen & Lin 2014). 
+The second challenge of high-volumes of data can be addressed with a natural ability of deep learning algorithms to extract fea-tures from unlabeled data. Thus, since most of the available data are unlabeled or noisy data, utilizing an advanced deep learning algo-rithm is a perfect solution to extract patterns available in big data. In this regard, some researchers have used semi-supervised learning to alleviate noisy data problems. 
+b. Deep Learning for High-velocity of Data In today＊s data-intensive era, data velocity〞the increasing rate at which data are collected and obtained〞is another challenge for deep learning algorithms. Data can be produced at an extremely high speed and may need to be processed in a timely manner. One example of high-velocity data in power system is the PMU data which are usually collected with the frequency of 30每60 data sam-ples per second. 
+Online learning is one possible solution for high-velocity data which is to learn one instance at a time and update network param-eters. To speed up sequential online learning process, researchers performed the network update on mini-batch size of streaming input data (Scherer et.al. 2010). Also, if a possibility of data loss with streaming data exists, and if it is generally not immediately processed and analyzed, there is an option to save fast-moving data into the bulk storage for processing them at later time. However, the high-velocity nature of big data is a challenging problem that needs further investigation. 
+c. Deep Learning for High Variety of Data 
+High variety of big data creates another challenge for deep learning algorithms. These days, data produced from different sources and combination of data coming from different sources form one com-plete data set. For example, data that need to be analyzed can be a collection of messages, images, and audio streams, each type of data coming from different probability distributions. 
+As mentioned before, a natural characteristic of deep learning method is their ability to classify supervised and unsupervised data, or a combination of both through the hierarchal learning pro-cess, in which each layer can capture different features of data. The abstract representations provided by deep learning algorithms can separate the different sources of variations in data. Therefore, one solution to address high-variety of data is to learn data represen-tation (feature selection) from each data source individually, and then combine them in an appropriate deep learning structure. For example, authors in (Srivastava & Salakhutdinov 2012) developed a deep learning module that is aimed to find patterns from two dif-ferent sources, image and text data. In their deep learning model, the authors first built two separate deep learning structures for image and text data. Then, the additional layer was developed to build the joint representation of all data. 
+
+
+
+2.4 Application of Big Data in Power Systems 
+During the last ten years, there has been a remarkable increase of data available in different areas of power systems, such as data for analyz-ing power market and data from time-synchronized phasor also known as phasor measurement units (PMUs) for state estimation. Therefore, it is necessary to extract insights from available data and enhance power quality and optimize power system operations. These new data that are rich with information can provide many insights and stimulate research opportunities for power system enhancement. For example, by utilizing the huge data that are available from different sources, power system companies and market participants can increase their performance and utilization of system assets. Optimal application of time-synchronized phasor data leads to the development of wide-area measurement systems (WAMS), recently. WAMS is a powerful approach to identify inter-area oscillations in a large grid. In these applications, PMU-based wide-area measurements are being used to provide remote feedback signals and improve the damping of inter-area oscillations through specially designed damping controllers (Raoufat et.al. 2016). Other design techniques and methodologies have also been reported for PMU measurements includ-ing fault-tolerant (Raoufat et.al. 2017; Foruzan et.al. 2017) and coordinated damping controllers. 
+However, to extract necessary information and gain useful insights from available data to enhance power system, the classification and predictive models are useful and necessary to achieve that purpose. For example, to manage the risks in electricity markets, it is necessary to forecast different market indicators such as the hourly price of the spot markets, customer loads, and renewable energy productions. Fairly accurate forecasts of load, energy production, and market prices are important inputs to the decision-making activities of a generation company or an electric utility for producing energy. Electricity is a special commodity which is not easily storable. All generated electricity must be consumed in the instant it was produced. Therefore, both producers and consumers need accurate price forecasts to establish the best strategies for their own benefits. 
+2.4.1 Big Data in Smart Grid Networks 
+Nowadays, smart grid (SG) technology can ful.ll the new requirements to manage a distribution system efficiently. This task is performed by incor-porating advanced information and communications technology (ICT). The extensive deployment of the advanced ICT, materialized in part by smart meters, is producing significant amounts of data regarding memory, speed, and heterogeneity. The generated big data bring substantial benefits to help manage the system more efficiently. However, handling this amount of data presents several challenges. That is the reason why big data technology is a new scientific trend within the SG area. 
+In this scenario, the data processing is of primary concern and its urgency increases with data growth. For the particular case of SGs, traditional model-based tools need to be modified because the big data need to be handled within short elapsed time and using limited hardware resources. This new paradigm, known as big data technology, must be interpreted as an exten-sion of the traditional methods (He et.al. 2017). 
+
+2.4.2 Phasor Measurement Units (PMU) 
+Synchrophasors are time-synchronized vectors that represent both the magnitude and phase angle of the sine waves found in electricity, and are time-synchronized for accuracy. They are measured by high-speed monitors called PMUs that are about 100 times faster than the measurements provided by existing Supervisory Control and Data Acquisition (SCADA) system. PMUs measure current and voltage by amplitude and phase at selected loca-tions of the transmission system. The high-precision time synchronization (via GPS) allows comparing measured values (synchrophasors) from dif-ferent substations far apart and drawing conclusions as to the system state and dynamic events such as power swing conditions. PMU measurements record grid conditions with high accuracy and offer insight into grid stabil-ity or stress. Synchrophasor technology is used for real-time operations and off-line engineering analyses to improve grid reliability and efficiency and lower operating costs. 
+PMUs are typically used for wide-area monitoring and grid monitoring, as its measured variables use synchrophasors from PMUs serving as sensors. It helps with quick recognition of the current network situation and indi-cates both power swings and transient phenomena, transparently as well as instantly. Measurements from PMUs support control center personnel in assessing critical grid situations and contribute to taking suitable actions. As all measured results are stored, power system disturbances can be promptly analyzed. The PMU devices determine current and voltage phasors with highly accurate time stamps and transmit them for analysis together with other measured values (frequency, speed of frequency change) using the IEEE C37.118 communication protocol, which are typically sent to the control centers. PMUs and their measured synchrophasors make a valuable contri-bution to the dynamic monitoring of transient processes in energy supply systems. 
+System frequency is one of the electric grid＊s ※vital signs§ much the same as a human＊s pulse or temperature. The University of Tennessee in Knoxville, in collaboration with Oak Ridge National Laboratory, deployed a system of global positioning system (GPS) synchronized sensors to measure the volt-age angle and frequency of the electric grid on a wide-area basis. This is the largest wide-area electric grid sensor network in the world〞allowing power system engineers to see the dynamic behavior of the total interconnected electric grid and to understand how the various geographical regions inter-act with one another. These data flow from the remote sensors into the cen-tral processing facility in Knoxville, Tennessee where it is time-synchronized and incorporated into the map. These data are used by experts across North America when they investigate electricity blackouts. 
+The North American SynchroPhasor Initiative (NASPI) is a collaborative effort among the U.S. Department of Energy (DOE), the electric power indus-try, and academia. NASPI was established in 2007 to advance the understand-ing and use of synchrophasor technology, and is a forum for Recovery Act Smart Grid Investment recipients to share information and lessons learned, solve problems, develop technical standards, and further the development of synchrophasor technology. As a result, much of the collective insights and work products produced by NASPI are direct outcomes of the Recovery Act Smart Grid Investments. DOE has funded NASPI research and national laboratory participation in NASPI since 2007, and began supporting NASPI directly at the start of 2014. 
+
+2.4.3 Renewable Energy 
+Neural networks have been seen as very useful in the area of renewable energy, neural networks models can be used to estimate output power as a function of wind turbine parameters and delay of corresponding parameters (i.e., power, wind speed). Humidity, wind speed, and time are used as input variables to train a neural network model in power prediction applications. Prediction of short-term and long-term power using the k-NN algorithm has also been proposed. Analysis results based on power estimation-based clustering method were also reported. These research works show the importance and challenge of extracting the correct information from big data sources, and producing a useful and reduced set of data. Nowadays, the major areas that apply DM methodology to handle big data are security assessment, fault detection, power system control, load forecasting, and load profiling (Hu & Vasilakos 2016). 
+
+2.4.4 CIM as Information Standard for Big Data Analytics 
+In addition to the increasing need for robust algorithms that can handle large amount of data, the interoperability issue between information systems pro-vided by different software/hardware vendors containing information of very large networks is attracting more attention. As an example, the European Network of Transmission System Operators (ENTSO-E) has been conducting large-scale interoperability tests for grid model data exchanges since 2009. These tests provide a voluntary environment to ensure relatively easy and seamless data integration using Common Information Model (CIM) standard among different software applications for transmission network planning and operations. CIM was first initiated by Electric Power Research Institute (EPRI) more than 15 years ago. Since then, the International Electrotechnical Commission (IEC) Technical Committee 57 (TC 57) has been active in man-aging and expanding the CIM model. A series of standards released by IEC TC 57 started to form the base for network data design, exchange and trans-fer for power system applications within electric power utilities. 
+To address the data interoperability issue and facilitate data exchange among different applications, many utilities have standardized or are in the process of standardizing their data model exchange using CIM standard. Most of the SCADA systems, databases, and smart devices in operation support CIM XML standard for data exchange. To work with this scenario, the programs need to provide a built-in CIM data interface, import network data definitions in CIM XML format, render XML data into the user interfaces and use it as an input to the power system analysis algorithms. The challenge is on the approach to handle big data using this type of format (Magnago et.al. 2015). 
+
+2.4.5 Big Data Problem in Power System Modeling 
+Big data issues also exist in power system modeling applied to different areas such as scheduling, unit commitment or electricity market tools. The real needs related to big data stem from emerging problems such as increas-ing numbers of constraints and more periods of time needed in optimization formulations, different network topology changes, and more bids/offers in electricity markets (Hong et.al. 2016). 
+2.4.5.1 Security-Constrained Unit Commitment (SCUC) 
+To illustrate the potential enormity of the problem in power system secu-rity analysis, consider the following somewhat extreme short-term SCUC example. Let the SCUC problem have 24 hourly time periods, and assume that the outer loop in Figure 2.5 is cycled ten times to capture and resolve all constraint violations. For a network of 20,000 buses and a list of 1,000 contingencies, this SCUC calculation involves the solution of 240,000 contin-gency cases. Suppose that we use an AC network model throughout, where the time to obtain a solution for each post-contingency AC power flow takes about 0.25s. Then with the simplest iteration strategy, the study＊s security analysis takes a total of 16.66h on a single CPU. This of course does not take into account of the use of good critical constraint-set iteration strategies, which can easily reduce the overall time by a factor of five or more. 
+At the other extreme, if the simplest DC-type network model with LODFs (line outage distribution factors) is used throughout, the equivalent security analysis calculation is in the orders of magnitude faster. However, additional tools are needed to analyze and account for differences between AC and DC flows and AC model is required to deal with voltage issues that are ignored in DC models. In summary, the research needs to address the combination of 
+UC Master problem 
+ui, Pi, t=0 ui, Pi, t=0
+cut1 cutn 
+PFL (0) PFL (n) 
+CTG (0) CTG (n) 
+CTG (0) CTG (n)
+mm 
+FIGURE 2.5 
+Security analysis: base case and contingencies. 
+large-scale problems with an increasing number of variables while provid-ing a solution with high accuracy requirement (i.e., very small relative gap), and a limited solution time (i.e., for a day-ahead problem, the current time limit is 1200 s) (Pinto et.al. 2006). 
+
+2.4.5.2 Decomposition Methods to Handle Big Data 
+There are different decomposition每coordination schemes that can tackle large-scale multi-stage problems of both deterministic and stochastic natures. Decomposition methods aim to reduce large-scale problems into simpler problems. These methods take advantage of the fact that although the problems in power systems are large, the problem structure can be decomposed into subproblems, such as decomposed problems for different periods, different contingencies, etc. 
+The first decomposition methodology that was proposed to solve these types of problems is the Dantzig每Wolfe decomposition method. The basic idea of this method is to build an equivalent master problem with fewer rows than the original problem but with a very large number of columns. This master problem can be solved using any linear programming (LP) technique. Then, the multiplier parameters or prices are sent to the subproblems. The subprob-lems are then solved and the results are sent back to the master problem which combines these results with the previous solution and calculates a new price. This process of looping between master problem and subproblems is iterated until an optimal solution is obtained. This technique works particularly well when the size of the problem is large in term of columns. Additional methods were proposed when the problem size increases in row direction. One of these techniques is known as the Benders Decomposition (BD) method. 
+BD is an algorithm that has been broadly used for large-scale optimiza-tion problems, particularly for those in power systems. BD has three main advantages: (1) modularity, (2) .exibility, and (3) robustness. With respect to modularity, master and subproblems can be separately solved by special-ized algorithms, thus providing speed and ef.ciency on the overall perfor-mance of the global optimization process. Additionally, Benders .exibility is mainly supported by the different existing power system applications. For example, it is possible to .nd its application in areas like security-constrained economic dispatch (SCED), generation-transmission planning, hydrothermal coordination, and optimal power .ow. Finally, in terms of robustness, despite the different natures of the master problems and the subproblems in SCUC applications, both problems are essentially solved using LP algorithms. This is an important feature because LP algorithms are one of the most mature and proven methodologies among other opti-mization techniques. Nevertheless, since BD is a cutting-plane method, it may present instabilities which are translated into delays in the algorithm convergence. In addition, since the master level is formulated as a mixed-integer linear problem (MILP), the convergence time is strongly affected by the high computational burden of the master problem. Therefore, there are many ongoing research efforts with the goal of improving BD performance. Among the different suggested possibilities, having a better initialization of BD is recognized by several researchers as one of the most important enhancements by concluding that it could have a signi.cant effect on BD performance (Wang & Shahidehpour 1992). 
+There are two types of methodologies to solve stochastic problems: 
+(1) Progressive Hedging (PH) method and (2) Dual Approximate Dynamic Programming algorithm (DADP). The PH method decomposes the problem into different scenarios and includes some of the constraints as a dual prob-lem. The main advantage of this approach is that it can solve large num-bers of dynamical subsystems while the disadvantage is that the complexity increases with the number of stages. The DADP decomposes the problem spatially and considers the dynamic subsystems as a dual problem. The complexity linearly increases with the number of stages, depending on the approximation supposed to solve the subproblems by the dynamic program-ming method (Gangammanavar et.al. 2016). 
+
+2.4.5.3 Firm Transmission Right (FTR) Problems 
+Financial transmission rights (FTRs) play a crucial role in electricity mar-ket designs since these market products allow the market participants to hedge against highly varying market prices by reducing price uncertainty as well as facilitating competitive open transmission access. FTRs, along with other market products, have been used since 1998 in many well-known electricity markets in the United States. The evolution of these markets shows that the number of pricing nodes and market activities increased considerably while the virtual transaction volumes tripled in the past few years. Additionally, the evolution of the FTR analysis also includes an increasing number of contingencies. Moreover, there are other FTR mar-kets that consider the multi-period case which increases the problem not only in the direction of the number of periods but also with the coupling constraints (Alsa. et.al. 2004). 
+
+2.4.5.4 Time-Constrained Economic Dispatch 
+Classical economic dispatch problems are static in the sense that only one snapshot problem is solved at a time without taking into consideration the dynamic nature of system conditions, such as instantaneous changes in sys-tem demand or changes in the network topology. In real-time operation, some controls in the grid can react very quickly to this kind of dynamic situation while other controls may not be able to respond to the problem as quickly and adequately as possible. 
+For a real-time operation, control decisions should take into consideration system conditions for the next hour or eventually for the next two hours. For short-term planning, control decisions should take into consideration the system conditions for the next 24 h or even the next week. If there is no con-straint between these consecutive hours, then the economic dispatch prob-lems can be solved independently. However, nowadays it becomes essential to include temporal restrictions, such as generation units＊ ramp constraints, and objective variables that cannot move more than a specified value or have a minimum movement among adjacent periods. There are two approaches to solve this type of problem: (1) solve all periods together as a large optimiza-tion problem or (2) apply decomposition methods to include time-coupling constraints (David & Li 1993). 
+
+
+
+2.5 Conclusions 
+With the wide-spread adoption of the Internet throughout the world, the inundation of data, lots of them, is inevitable. Almost every business, institution, and organization is and will be affected by this growing wave of big data. Those organizations have no choice but to be ready to deal with that phenomenon. Health care, finance, social networking, oil and gas, energy, and even power systems are some major areas which will face this sea change. In the first part of this chapter, the general problem of big data is stated, in the context of some of these business areas. Then, the readers are introduced some of the latest methods and algorithms used in process-ing and analyzing such big data. Those algorithms come from machine learning, such as ANNs, SVM, decision-tree algorithms. Models from deep learning, such as CNNs, RNN, and DBN, are also introduced. The final part of this chapter describes some of the development and challenges facing both the traditional power systems and new SG environment. Some of the devel-opments include the growing adoption of PMU, and associated challenges of processing large amount of data produced by those devices. Optimization problems associated with big data will also be more complicated and chal-lenging going forward. To solve such problems, decomposition methods have become popular as they are effective in solving varied and complex problems. The chapter concludes with outlining some emerging problems in new power systems. 
+
+References 
+Aggarwal, S.K., Saini L.M. & Kumar A. (2009). Electricity price forecasting in deregu-lated markets: A review and evaluation. International Journal of Electrical Power & Energy Systems, vol. 31, no. 1, pp. 13每22. 
+Alpaydin, E. (2014 July每August). Introduction to Machine Learning. Cambridge, MA: The MIT Press. 
+Alsa., O., Bright, J.M., Brignone, S., Prais, M., Silva, C., Stott, B. & Vempati, N. (2004). The rights to fight price volatility. IEEE Power and Energy Magazine, vol. 2, no. 4, pp. 47每57. 
+Bengio, Y. (2009). Learning Deep Architectures for AI. Foundation and Trends. R. O in Machine Learning, vol. 2, no. 1, pp. 1每127. 
+Bengio, Y. (2013). Deep learning of representations: Looking forward. 1st International Conference on Statistical Language and Speech Processing. SLSP＊13, Tarragona, Spain, pp. 1每37. 
+Bihl, T.J., Young II, W.A. & Weckman, G.R. (2016). Defining, understanding, and addressing big data. International Journal of Business Analytics (IJBAN), vol. 3, no. 2, pp.1每32. 
+David, A.K. & Li, Y.Z. (1993 February). Effect of inter-temporal factors on the real time pricing of electricity. IEEE Transactions on Power Systems, vol. 8, no. 1, pp. 44每52. 
+Deepak, S. & Swarup, K.S. (2011). Electricity price forecasting using artificial neural networks. International Journal of Electrical Power & Energy Systems, vol. 33, no. 3, pp. 550每555, March 2011. 
+Foruzan, E., Sangrody, H., Lin, J. & Sharma, D.D. (2017 September). Fast sliding detrended fluctuation analysis for online frequency-event detection in mod-ern power systems. North American Power Symposium (NAPS), West Virginia, pp. 1每6. 
+Gangammanavar, H., Sen, S. & Zavala, V.M. (2016 March). Stochastic optimization of sub-hourly economic dispatch with wind energy. IEEE Transactions on Power Systems, vol. 31, no. 2, pp. 949每959. 
+Hasim, S., Senior, A.W. & Beaufays, F. (2014). Long short-term memory recurrent neu-ral network architectures for large scale acoustic modelling. Fifteenth Annual Conference of the International Speech Communication Association, Interspeech, 2014. 
+He, X., Ai, Q., Qiu, R., Huang, W., Piao, L. & Liu, H. (2017 March). A big data architec-ture design for smart grids based on random matrix theory. IEEE Transactions on Smart Grid, vol. 8, no. 2, pp. 674每686. 
+Hijazi, S., Kumar, R. & Rowen, C. (2015). Using convolutional neural networks for image recognition. Cadence. https://ip.cadence.com/uploads/901/cnn_wp-pdf. Hinton, G. (2002). Training products of experts by minimizing contrastive diver-gence. Neural Computing, vol. 14, no. 8, pp. 1771每1800. 
+Hinton, G., Deng, L., Yu, D., Mohamed, A-R, Jaitly, N, Senior, A., Vanhoucke, V., Nguyen, P., Sainath, T., Dahl, G. & Kingsbury, B. (2012). Deep neural networks for acoustic modeling in speech recognition: The shared views of four research groups. IEEE Signal Process Magazine, vol 29, no. 6, pp. 82每97. 
+Hinton, G. & Salakhutdinov, R. (2006). Reducing the dimensionality of data with neural networks. Science, vol. 313, no. 5786, pp. 504每507. 
+Hong, T., Chen, C., Huang, J., Lu, N., Xie, L. & Zareipour, H. (2016 September). Big data analytics for grid modernization. IEEE Transactions on Smart Grid, vol. 7, no. 5, pp. 2395每2396. 
+Hu, J. & Vasilakos, A. (2016 September). Energy big data analytics and security: Challenges and opportunities. IEEE Transactions on Smart Grid, vol. 7, no. 5, pp. 2423每2436. 
+Kalogirou, S.A. (2000 September). Applications of artificial neural-networks for energy systems. Applied Energy, vol. 67, no. 1每2, pp. 17每35. 
+Krizhevsky, A., Sutskever, I. & Hinton, G.E. (2009). ImageNet classification with deep convolutional neural networks. Advances in Neural Information Processing Systems, vol. 22, pp. 1097每1105. 
+Krizhevsky, A., Sutskever, I. & Hinton, G.E. (2012). ImageNet classification with deep convolutional neural networks. Advances in Neural Information Processing Systems, vol. 25, pp. 1106每1114. 
+Magnago, F., Zhang, L. & Nagarkar, R. (2015 September). Three phase distribution state estimation utilizing common information model. 2015 IEEE Eindhoven PowerTech, Eindhoven, Netherlands, pp. 1每6. doi: 10.1109/PTC.2015.7232515. 
+Negnevitsky, M., Mandal, P. & Srivastava, A.K. (2009). Machine learning applications for load, price and wind power prediction in power systems. 15th International Conference on Intelligent System Applications to Power Systems, 8每12 Nov. 2009, Curitiba, Brazil, pp. 1每6. 
+Pinto, H., Magnago, F., Brignone, S., Alsac, O. & Stott, B. (2006). Security constrained unit commitment: Network modeling and solution issues. IEEE PES Power Systems Conference and Exposition, Atlanta, GA, pp. 1759每1766. 
+Raoufat, M.E., Tomsovic, K. & Djouadi, S.M. (2016 November). Virtual actuators for wide-area damping control of power systems. IEEE Transactions on Power Systems, vol. 31, no. 6, pp. 4703每4711. 
+Raoufat, M.E., Tomsovic, K. & Djouadi, S.M. (2017 November). Dynamic control allo-cation for damping of damping inter-area oscillations. IEEE Transactions on Power Systems, vol. 32, no. 6, pp. 4894每4903. 
+Roman, T. (2004). Classification and regression trees (CART) theory and applications. Diss. Humboldt University, Berlin. Rutkowski, L., Jaworski, M., Pietruczuk, L. & Duda, P. (2014). The CART decision tree for mining data streams. Information Sciences, vol. 266, pp. 1每15. Saini, L.M., Aggarwal, S.K. & Kumar, A. (2010). Parameter optimization using genetic algorithm for support vector machine-based price-forecasting model in 
+national electricity market. Generation, Transmission & Distribution, IET, vol. 4, no. 1, pp. 36每49. 
+Scherer, D., M邦ller, A. & Behnke, S. (2010). Evaluation of pooling operations in convolutional architectures for object recognition. Proceedings of International Conference on Artificial Neural Networks (ICANN), 15每18 Sep. 2010, Thessaloniki, Greece, pp. 92每101. 
+Soares, T., Fernandes, F., Morais, H., Faria, P. & Vale, Z. (2012 May). ANN-based LMP forecasting in a distribution network with large penetration of DG. IEEE, PES Transmission and Distribution Conference and Exposition (T&D), pp. 1每8. 
+Srivastava, N. & Salakhutdinov, R. (2012). Multimodal learning with deep Boltzmann machines. Advances in neural information processing systems (NIPS), 03每08 Dec. 2012, Harrahs and Harveys, Lake Tahoe. 
+Wang, C. & Shahidehpour, S.M. (1992 November). A decomposition approach to non-linear multi-area generation scheduling with tie-line constraints using expert systems. IEEE Transactions on Power Systems, vol. 7, no. 4, pp. 1409每1418. 
+Wu, X., Zhu, X., Wu, G. & Ding, W. (2014). Data mining with big data. IEEE Transactions on Knowledge and Data Engineering, vol. 26, no. 1, pp. 97每107. 
+Xue-Wen, C. & Lin, X. (2014). Big data deep learning: Challenges and perspectives. IEEE Access, vol. 2, pp. 514每525. 
+Zhi-Hua, Z., Chawla, G.J. & Yaochu, J.W. (2014). Big data opportunities and chal-lenges: Discussions from data analytics perspectives [discussion forum]. IEEE Computational Intelligence Magazine, vol. 9, no. 4, pp. 62每74. 
+
+
